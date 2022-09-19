@@ -25,22 +25,15 @@ const AddUser = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        console.log(name, email, phone, profile)
         const formData = new FormData();
         formData.append('name',name);
         formData.append('email',email);
         formData.append('phone',phone)
         formData.append('profile',profile)
 
-        fetch('http://localhost:5000/addUser',{
-            method:'POST',
-            headers: {
-                // 'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Type': 'multipart/form-data',
-                'Boundary':'MyBoundary'
-            },
-            data:formData
-        })
+        props.onSubmitForm(formData)
+
     }
 
     return (
