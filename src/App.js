@@ -4,14 +4,18 @@ import './App.css';
 import AddUser from './component/AddUser';
 import UserList from './component/UserList';
 
+const { REACT_APP_API } = process.env;
+
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [users,setAllUsers] = useState([]);
 
+  console.log(process.env.NODE_ENV," -------API_BASE_URL")
+
   const onSubmit = (formData) => {
 
     if (navigator.onLine){
-      fetch('http://localhost:5000/addUser',{
+      fetch(`${REACT_APP_API}/addUser`,{
               method:'POST',
               body:formData
           })
@@ -29,7 +33,7 @@ function App() {
   }
 
   const fetchAllUSers = () => {
-    fetch('http://localhost:5000/getUsers')
+    fetch(`${REACT_APP_API}/getUsers`)
       .then((res) => res.json())
       .then((usersData) => {
         usersData && usersData.data && usersData.data.length && setAllUsers(usersData.data)
