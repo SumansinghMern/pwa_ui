@@ -33,4 +33,17 @@ self.addEventListener('fetch', (event) => {
 // Activate Service worker
 self.addEventListener('activate', (event) => {
     console.log(event, " ----------event---------------activate")
+    let casheWiteList = [];
+    casheWiteList.push(CACHE_NAME);
+    
+    event.waitUntil(
+        caches.keys()
+            .then((cachesNames) => Promise.all(
+                cachesNames.map(cachesName => {
+                    if (!casheWiteList.includes(cachesName)){
+                        return caches.delete(cachesName)
+                    }
+                })
+            ))
+    )
 })
