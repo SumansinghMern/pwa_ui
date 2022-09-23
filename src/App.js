@@ -13,8 +13,6 @@ function App() {
   console.log(process.env.NODE_ENV," -------API_BASE_URL")
 
   const onSubmit = (formData) => {
-
-    if (navigator.onLine){
       fetch(`${REACT_APP_API}/addUser`,{
               method:'POST',
               body:formData
@@ -23,13 +21,11 @@ function App() {
               return res.json()
           })
           .then((data) => {
-            console.log(data)
+            console.log(data,'---data')
             setShowForm(!showForm);
             fetchAllUSers()
           })
-    }else(
-      console.log(formData, "Ofline---------",formData.profile)
-    )
+   
   }
 
   const fetchAllUSers = () => {
