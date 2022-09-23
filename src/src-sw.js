@@ -4,7 +4,7 @@ import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 clientsClaim();
 
 
-
+console.log('4444444444444444444444444444')
 
 self.skipWaiting();
 
