@@ -50,6 +50,10 @@ const AddUser = (props) => {
                 <input type="text" name="email" onChange={(e) => changeInput(e.target.value, 'email')} id="imageUrl" value={email} />
             </div>
             <div class="form-control">
+                <label for="price">Phone</label>
+                <input type="number" name="phone" onChange={(e) => changeInput(e.target.value, 'phone')} id="price" step="0.01" value={phone} />
+            </div>
+            <div class="form-control">
                 <label for="image">Image</label>
                 <input
                     type="file"
@@ -58,11 +62,7 @@ const AddUser = (props) => {
                     id="image"
                 />
             </div>
-            <div class="form-control">
-                <label for="price">Phone</label>
-                <input type="number" name="phone" onChange={(e) => changeInput(e.target.value, 'phone')} id="price" step="0.01" value={phone} />
-            </div>
-
+            
             <button class="btn" type="submit">Submit</button>
 
         </form>

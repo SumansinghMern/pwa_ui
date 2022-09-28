@@ -50,11 +50,10 @@ function App() {
   return (
     <div className="App">
       <div id='status'></div>
-      {!showForm &&<div className='btn_container '>
-        <button className='btn' onClick={() => setShowForm(!showForm)}>Add User</button>
-      </div>}
-
-      {showForm && <AddUser onSubmitForm={onSubmit} />}
+      <div className='btn_container '>
+        {!showForm && <button className='btn' onClick={() => setShowForm(!showForm)}>Add User</button>}
+        {showForm && <AddUser onSubmitForm={onSubmit} />}
+      </div>
       <div className='userList cointaner'>
         {users && users.length &&<UserList users={users}/>}
       </div>
