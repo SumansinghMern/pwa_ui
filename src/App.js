@@ -13,6 +13,7 @@ function App() {
   console.log(process.env.NODE_ENV," -------API_BASE_URL")
 
   const onSubmit = (formData) => {
+      
       fetch(`${REACT_APP_API}/addUser`,{
               method:'POST',
               body:formData
@@ -25,7 +26,11 @@ function App() {
             setShowForm(!showForm);
             fetchAllUSers()
           })
-   
+          .catch((err) => {
+            console.log(err,"--------Error----");
+            setShowForm(!showForm);
+          })
+          
   }
 
   const fetchAllUSers = () => {

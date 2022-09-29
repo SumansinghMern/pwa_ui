@@ -30,7 +30,7 @@
     "dev": "webpack server --mode=development",
     "prod": "NODE_ENV=production webpack --mode=production",
     "serve": "npm run prod && serve -s dist",
-    "start": "NODE_ENV=production PUBLIC_URL=http://localhost:3000 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
